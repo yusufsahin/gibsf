@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: yusufsahin
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            tableExists:
+              tableName: contacts
+      changes:
+        - createTable:
+            tableName: contacts
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: firstname
+                  type: varchar(255)
+              - column:
+                  name: lastname
+                  type: varchar(255)
+              - column:
+                  name: phonenumber
+                  type: varchar(30)
+              - column:
+                  name: email
+                  type: varchar(255)
